@@ -116,7 +116,7 @@ python train.py --gpu=0
 
 **Step 1**: Produce txt results and visualizations from model.
 ```bash
-# Test ResNet50 backbone model
+# Test MobilenetV2 backbone model
 python test_widerface.py --cfg_path="./configs/retinaface_mbv2.yaml" --gpu=0
 ```
 
@@ -154,4 +154,4 @@ python test.py --webcam=True --down_scale_factor=1.0
 - https://github.com/wondervictor/WiderFace-Evaluation
     - Python Evaluation Code for Wider Face Dataset
 - https://github.com/zzh8829/yolov3-tf2
-    - YoloV3 Implemented in TensorFlow 2.0"# retinaface_tensorflow" 
+    - YoloV3 Implemented in TensorFlow 2.0
