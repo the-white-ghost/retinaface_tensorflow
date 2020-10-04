@@ -9,7 +9,7 @@ Original implimentation of the research paper [here](https://github.com/deepinsi
 | Model Name          | Easy   | Medium | Hard   |
 |---------------------|--------|--------|--------|
 | Tensorflow2 MobileNetV2 | 93.23% | 91.74% | 80.01% |
-| Tensorflow2 ResNet50 | 94.21% | 93.25% | 83.55% |
+
 
 ## Environment
 
