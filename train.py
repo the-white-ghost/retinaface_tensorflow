@@ -85,7 +85,6 @@ def main(_):
         return total_loss, losses
 
     # training loop
-    summary_writer = tf.summary.create_file_writer('./logs/' + cfg['sub_name'])
     remain_steps = max(
         steps_per_epoch * cfg['epoch'] - checkpoint.step.numpy(), 0)
     prog_bar = ProgressBar(steps_per_epoch,
@@ -100,16 +99,7 @@ def main(_):
         prog_bar.update("epoch={}/{}, loss={:.4f}, lr={:.1e}".format(
             ((steps - 1) // steps_per_epoch) + 1, cfg['epoch'],
             total_loss.numpy(), optimizer.lr(steps).numpy()))
-
-        if steps % 10 == 0:
-            with summary_writer.as_default():
-                tf.summary.scalar(
-                    'loss/total_loss', total_loss, step=steps)
-                for k, l in losses.items():
-                    tf.summary.scalar('loss/{}'.format(k), l, step=steps)
-                tf.summary.scalar(
-                    'learning_rate', optimizer.lr(steps), step=steps)
-
+            
         if steps % cfg['save_steps'] == 0:
             manager.save()
             print("\n[*] save ckpt file at {}".format(
